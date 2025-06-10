@@ -67,3 +67,25 @@ dependencies
   </build>
 </project>
 
+
+commands:
+ java --version
+ sudo apt update
+ sudo apt install firefox
+ sudo snap install firefox
+ sudo apt install maven
+ curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt install jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenins
+mvn archetype:generate -DgroupId=com.cse -DartifactId=p4 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+cd [name of the folder]
+nano pom.xml
+mvn package
+ls target/*.jar
+readlink target/*.jar
+cd ~
+nano playbook.yml
+ansible-playbook playbook.yml --ask-become-pass
+
